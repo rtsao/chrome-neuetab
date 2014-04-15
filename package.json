@@ -2,9 +2,12 @@
   "name": "chrome-neuetab",
   "version": "0.0.0",
   "description": "A replacement new tab page for Chrome",
-  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rtsao/chrome-neuetab.git"
   },
   "author": "Ryan Tsao <rtsao@scu.edu>",
   "license": "ISC",
