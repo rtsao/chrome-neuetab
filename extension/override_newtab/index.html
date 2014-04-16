@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en"><head></head><body><div ng-app="time">
+  <div ng-controller="Ctrl2">
+  Date format: <input ng-model="format"> <hr/>
+  Current time is: <span my-current-time="format"></span>
+  <hr/>
+  Blood 1 : <font color='red'>{{blood_1}}</font>
+  Blood 2 : <font color='red'>{{blood_2}}</font>
+  <button type="button" data-ng-click="fight()">Fight</button>
+  <button type="button" data-ng-click="stopFight()">StopFight</button>
+  <button type="button" data-ng-click="resetFight()">resetFight</button>
+  </div>
+</div>
+<script src="build.js"></script></body></html>

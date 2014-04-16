@@ -1,0 +1,13 @@
+{
+  "name": "NeueTab: new tab page replacement",
+  "version": "0.0.0",
+  "manifest_version": 2,
+  "description": "This extension was created with the awesome extensionizr.com",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "chrome_url_overrides": {
+    "newtab": "override_newtab/index.html"
+  }
+}
