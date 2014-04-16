@@ -7,15 +7,16 @@ var jade = require('gulp-jade');
 var mold  =  require('mold-source-map')
 
 gulp.task('scripts', function() {
-  browserify({
-  	entries: ['./src/newtab/app.js'],
-  	extensions: ['.js']
-  })
+  browserify('./src/newtab/app.js')
   .bundle({debug: true})
   .pipe(mold.transformSourcesRelativeTo('./extension/override_newtab/'))
   .pipe(source('bundle.js'))
   .pipe(gulp.dest('./extension/override_newtab/'));
 
+  browserify('./src/background/background.js')
+  .bundle()
+  .pipe(source('background.js'))
+  .pipe(gulp.dest('./extension/'));
 });
 
 gulp.task('less', function() {

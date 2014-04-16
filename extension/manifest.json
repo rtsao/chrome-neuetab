@@ -1,8 +1,8 @@
 {
-  "name": "NeueTab: new tab page replacement",
+  "name": "NeueTab",
   "version": "0.0.0",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.com",
+  "description": "A new tab page replacement for Google Chrome",
   "background": {
     "scripts": ["background.js"],
     "persistent": true
