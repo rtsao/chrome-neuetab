@@ -9,5 +9,8 @@
   },
   "chrome_url_overrides": {
     "newtab": "override_newtab/index.html"
-  }
+  },
+  "web_accessible_resources": [
+    "override_newtab/*"
+  ]
 }

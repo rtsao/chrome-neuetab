@@ -4,17 +4,17 @@ var source = require('vinyl-source-stream');
 var rename = require('gulp-rename');
 var less = require('gulp-less');
 var jade = require('gulp-jade');
+var mold  =  require('mold-source-map')
 
 gulp.task('scripts', function() {
-  browserify('./src/newtab/app.js')
+  browserify({
+  	entries: ['./src/newtab/app.js'],
+  	extensions: ['.js']
+  })
   .bundle({debug: true})
-  .pipe(source('build.js'))
+  .pipe(mold.transformSourcesRelativeTo('./extension/override_newtab/'))
+  .pipe(source('bundle.js'))
   .pipe(gulp.dest('./extension/override_newtab/'));
-
-  browserify('./src/background/background.js')
-  .bundle({debug: true})
-  .pipe(source('background.js'))
-  .pipe(gulp.dest('./extension/'));
 
 });
 
