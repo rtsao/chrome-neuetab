@@ -6,15 +6,16 @@ var less = require('gulp-less');
 var jade = require('gulp-jade');
 var mold = require('mold-source-map');
 var notify = require('gulp-notify');
+var prefix = require('gulp-autoprefixer');
 
 var handleErrors = function (error) {
- 	return "Error: " + error.message;
+ 	return 'Error: ' + error.message;
 }
 
 gulp.task('scripts', function() {
   browserify('./src/newtab/app.js')
   .bundle({debug: true})
-  .on("error", notify.onError(handleErrors))
+  .on('error', notify.onError(handleErrors))
   .pipe(mold.transformSourcesRelativeTo('./extension/override_newtab/'))
   .pipe(source('bundle.js'))
   .pipe(gulp.dest('./extension/override_newtab/'));
@@ -28,7 +29,8 @@ gulp.task('scripts', function() {
 gulp.task('less', function() {
   gulp.src('./src/newtab/style.less')
   	.pipe(less({ compress: true }))
-  	.on("error", notify.onError(handleErrors))
+  	.on('error', notify.onError(handleErrors))
+    .pipe(prefix('last 2 Chrome versions'))
   	.pipe(gulp.dest('./extension/override_newtab/'));
 });
 
