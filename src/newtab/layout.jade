@@ -3,7 +3,13 @@ html(lang="en", ng-app="app")
   head
     link(rel="stylesheet", href="style.css")
   body
-    div(clock)
-    div(forecast, ng-show="loaded")
-      span Current: {{currentTemp}}&deg; Lo: {{loTemp}}&deg; Hi: {{hiTemp}}&deg;
+    div.clock(clock)
+      span.date {{date}} 
+      span.year {{year}} 
+      div.time {{time}}
+        span.ampm {{ampm}}
+    div.forecast(forecast, ng-show="loaded")
+      span.temp_current {{currentTemp}}
+      span.temp_lohi {{hiTemp}}/{{loTemp}}
+      div.description {{description}}
     script(src="bundle.js")

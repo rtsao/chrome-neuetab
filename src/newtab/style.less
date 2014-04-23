@@ -1,13 +1,18 @@
 @base: #4a4a4a;
 
+
 body {
 	color: @base;
+	font-family: HelveticaNeue;
+	display:flex;
+	text-rendering: optimizeLegibility;
+	padding: 30px;
 }
 
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(5px);
+    transform: translateY(2px);
   }
 
   100% {
@@ -18,8 +23,62 @@ body {
 
 .ng-hide-remove {
   display:block!important;
+  animation:.5s fadeInUp;
 }
 
-.ng-hide-remove {
-  animation:0.5s fadeInUp;
+.clock {
+	flex: 500 500 auto;
+	font-size: 24px;
+	margin-top: 4px;
+
+	.date {
+		font-family: HelveticaNeue-Medium;
+	}
+
+	.year {
+		font-family: HelveticaNeue-Light;
+	}
+
+	.ampm {
+		font-family: HelveticaNeue-Light;
+		font-size: 18px;
+		margin-left: 8px;
+		color: #D8D8D8;
+		}
+
+	.time {
+		font-family: HelveticaNeue-UltraLight;
+		font-size: 42px;
+		color: #9B9B9B;
+		margin-top:10px;
+	}
+}
+
+.forecast {
+	flex :1 0 auto;
+
+	.description {
+		font-family: HelveticaNeue-Medium;
+		font-size: 14px;
+		color: #4A90E2;
+		text-transform: lowercase;
+	}
+
+	.temp_high, .temp_low, .temp_current {
+		&::after {
+			content: '\00B0';
+		}
+	}
+
+	.temp_lohi {
+		margin-left: 8px;
+		font-family: HelveticaNeue;
+		color: #9B9B9B;
+	}
+
+	.temp_current {
+		font-family: HelveticaNeue-Thin;
+		font-size: 36px;
+		color: #D8D8D8;
+	}
 }
