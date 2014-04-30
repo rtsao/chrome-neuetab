@@ -1,37 +1,30 @@
-module.exports = function (weatherService) {
-	return function(scope, element, attrs) {
+module.exports = function (weatherService, $animate) {
+	
+  return {
+    restrict: 'E',
+    link: link,
+    scope: {},
+    templateUrl: 'templates/weather.html'
+  }
 
-    scope.loaded=false;
-
-    if (localStorage.weather) {
-
-      var promise = updateWeather(JSON.parse(localStorage.weather));
-
-      if (Date.now()/1000-promise.data.dt < 600) {
-        return;
-      }
-
-    }
-
-    weatherService.getWeather('milpitas,ca','imperial').then(updateWeather).then(saveWeather);
+  function link(scope, element, attrs) {
     
-		function updateWeather(promise) {
-
+    element.addClass('ng-hide');
+    weatherService.getWeather('santa+clara,ca','imperial').then(updateWeather);
+    
+    function updateWeather(promise) {
       var data = promise.data;
-
       scope.currentTemp = data.main.temp.toPrecision(2);
       scope.loTemp = data.main.temp_min.toPrecision(2);
       scope.hiTemp = data.main.temp_max.toPrecision(2);
       scope.description = data.weather[0].description;
-      scope.loaded=true;
+      
+      $animate.removeClass(element, 'ng-hide');
 
       return promise;
 
     }
+    
+  }
 
-    function saveWeather(promise) {
-      localStorage.weather = JSON.stringify(promise);
-    }
-
-	}
 };

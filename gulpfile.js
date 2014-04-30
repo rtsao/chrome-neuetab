@@ -9,7 +9,7 @@ var notify = require('gulp-notify');
 var prefix = require('gulp-autoprefixer');
 
 var handleErrors = function (error) {
- 	return 'Error: ' + error.message;
+ 	return 'Error on line' + error.line + ' :' + error.message;
 }
 
 gulp.task('scripts', function() {
@@ -35,11 +35,18 @@ gulp.task('less', function() {
 });
 
 gulp.task('jade', function() {
+
 	gulp.src('./src/newtab/layout.jade')
 		.pipe(jade())
-		.on("error", notify.onError(handleErrors))
+		.on('error', notify.onError(handleErrors))
 		.pipe(rename('index.html'))
 		.pipe(gulp.dest('./extension/override_newtab/'));
+
+  gulp.src('./src/newtab/templates/*.jade')
+    .pipe(jade())
+    .on('error', notify.onError(handleErrors))
+    .pipe(gulp.dest('./extension/override_newtab/templates/'));
+
 });
 
 gulp.task('default', ['scripts', 'less', 'jade', 'watch']);
