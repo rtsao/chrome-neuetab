@@ -7,6 +7,9 @@
     "scripts": ["background.js"],
     "persistent": true
   },
+  "permissions": [
+    "storage"
+  ],
   "chrome_url_overrides": {
     "newtab": "override_newtab/index.html"
   },
