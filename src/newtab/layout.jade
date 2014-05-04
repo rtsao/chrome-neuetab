@@ -3,10 +3,8 @@ html(lang="en", ng-app="app")
   head
     link(rel="stylesheet", href="style.css")
   body
-    div.clock(clock)
-      span.date {{date}} 
-      span.year {{year}} 
-      div.time {{time}}
-        span.ampm {{ampm}}
-    forecast
+    div.top
+      div.clock
+      div.forecast
+    div.stocks
     script(src="bundle.js")

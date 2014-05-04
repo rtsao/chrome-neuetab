@@ -1,7 +1,17 @@
-module.exports = function ($interval, $timeout, dateFilter) {
-  return function(scope, element, attrs) {
+module.exports = function ($interval, $timeout, dateFilter, $animate) {
 
+  return {
+    restrict: 'EC',
+    link: link,
+    scope: {},
+    templateUrl: 'templates/clock.html'
+  }
+
+  function link(scope, element, attrs) {
+
+    element.addClass('ng-hide');
     function updateTime() {
+      $animate.removeClass(element, 'ng-hide');
       var now = new Date();
       scope.date = dateFilter(now, 'EEEE, MMMM d');
       scope.year = now.getFullYear();
@@ -15,7 +25,7 @@ module.exports = function ($interval, $timeout, dateFilter) {
     }
 
     updateTime();
-    $timeout(startClock,60000-Date.now()%60000);
+    $timeout(startClock,60100-Date.now()%60000);
 
   }
 };

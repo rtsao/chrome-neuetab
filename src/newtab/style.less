@@ -4,9 +4,19 @@
 body {
 	color: @base;
 	font-family: HelveticaNeue;
-	display:flex;
 	text-rendering: optimizeLegibility;
 	padding: 30px;
+	margin:0;
+	box-sizing: border-box;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-flow: column;
+}
+
+.top {
+	display: flex;
+	flex-shrink: 0;
 }
 
 @keyframes fadeInUp {
@@ -55,7 +65,7 @@ body {
 	}
 }
 
-forecast {
+.forecast {
 	flex: 1 0 auto;
 
 	.description {
@@ -81,5 +91,54 @@ forecast {
 		font-family: HelveticaNeue-Thin;
 		font-size: 36px;
 		color: #D8D8D8;
+	}
+}
+
+
+
+.stocks {
+
+	display: flex;
+	flex-grow:100;
+
+	.container {
+		flex-flow: column wrap;
+		display: flex;
+	}
+
+	.title {
+		font-family: HelveticaNeue-Thin;
+		font-size: 28px;
+		color: #D4D4D4;
+	}
+
+	.stock {
+		margin-top: 28px;
+	}
+
+	.name {
+		font-family: HelveticaNeue-Medium;
+		font-size: 18px;
+		color: #2F2F2F;
+	}
+
+	.symbol {
+		font-family: HelveticaNeue-Thin;
+		font-size: 12px;
+		color: #9B9B9B;
+		margin-left: 8px;
+	}
+
+	.price {
+		font-family: HelveticaNeue-Thin;
+		font-size: 24px;
+		color: #191919;
+	}
+
+	.change {
+		font-family: HelveticaNeue-Medium;
+		font-size: 15px;
+		color: #5B7054;
+		margin-left: 8px;
 	}
 }

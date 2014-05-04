@@ -1,7 +1,7 @@
 module.exports = function (weatherService, $animate) {
 	
   return {
-    restrict: 'E',
+    restrict: 'EC',
     link: link,
     scope: {},
     templateUrl: 'templates/weather.html'

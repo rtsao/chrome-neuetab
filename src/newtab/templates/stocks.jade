@@ -1,0 +1,7 @@
+//span.title Stocks
+div.container
+  div.stock(ng-repeat="stock in stocks")
+    div.name {{stock.name}}
+      span.symbol {{stock.e}} : {{stock.t}}
+    div.price {{stock.l}}
+      span.change {{stock.c}} ({{stock.cp}}%)
