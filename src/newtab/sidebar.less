@@ -1,0 +1,22 @@
+.sidebar {
+  position:fixed;
+  top:0;
+  right:0;
+  height: 100vh;
+  background-color: #333333;
+  width: 300px;
+  transition: transform 0.5s ease;
+  transform: translateX(300px);
+
+
+  .button {
+    position:absolute;
+    left: -20px;
+    top: 0;
+  }
+
+  &[open] {
+    transform: translateX(0);
+  }
+
+}
