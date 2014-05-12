@@ -1,18 +1,21 @@
-module.exports = function ($animate) {
+module.exports = function ($animate,stockService) {
   
   return {
     restrict: 'EC',
     link: link,
-    scope: {},
     templateUrl: 'templates/sidebar.html'
   }
 
-  function link(scope, element, attrs) {    
-    
+  function link(scope, element, attrs) {
+
     scope.toggleOpen = function() {
       attrs.$set('open', !attrs.open);
     }
-    
+
+    scope.removeStock = function(index) {
+      scope.app.removeStockByIndex(index);
+    }
+
   }
 
 };

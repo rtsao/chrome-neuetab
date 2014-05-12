@@ -2,10 +2,12 @@ doctype html
 html(lang="en", ng-app="app")
   head
     link(rel="stylesheet", href="style.css")
-  body
+  body(ng-controller="AppCtrl as app")
     div.top
       div.clock
       div.forecast
     div.stocks
+      h2 Stocks
+      //div.stock(ng-repeat="stock in app.stocks track by $index")
     div.sidebar
     script(src="bundle.js")

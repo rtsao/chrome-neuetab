@@ -1,1 +1,1 @@
-<span>Stocks</span><div ng-click="toggleOpen()" class="button">hi</div>
+<div ng-click="toggleOpen()" class="button">+</div><span class="title">Stocks</span><div ng-repeat="stock in app.stocks track by $index" class="ticker"><div class="info"><div class="symbol">{{stock.e}} : {{stock.t}} </div><div class="name">{{stock.name}}</div></div><div ng-click="removeStock($index)" class="close"><span>&times;</span></div></div><form name="myForm" novalidate="novalidate" class="addstock"><span class="title2">ADD A STOCK </span><div class="stockForm"></div></form>

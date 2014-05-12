@@ -1,0 +1,4 @@
+p {{stockToAdd.name || "Please enter a stock symbol"}}
+  div.spinner(ng-show="loading")
+  input(type="text", ng-change="changed()", ng-model="tickerInput", placeholder="ex: GOOG")
+  button(ng-click="checkStock()") {{actionMessage}}

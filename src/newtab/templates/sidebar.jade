@@ -1,2 +1,12 @@
-span Stocks
-div.button(ng-click="toggleOpen()") hi
+div.button(ng-click="toggleOpen()") +
+span.title Stocks
+div.ticker(ng-repeat="stock in app.stocks track by $index")
+  div.info
+    div.symbol {{stock.e}} : {{stock.t}} 
+    div.name {{stock.name}}
+  div.close(ng-click="removeStock($index)")
+    span &times;
+
+form.addstock(name="myForm", novalidate)
+  span.title2 ADD A STOCK 
+  div.stockForm
