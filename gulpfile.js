@@ -1,12 +1,11 @@
-var gulp = require('gulp');
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
-var rename = require('gulp-rename');
-var less = require('gulp-less');
-var jade = require('gulp-jade');
-var mold = require('mold-source-map');
-var notify = require('gulp-notify');
-var prefix = require('gulp-autoprefixer');
+var gulp = require('gulp')
+  , browserify = require('browserify')
+  , source = require('vinyl-source-stream')
+  , rename = require('gulp-rename')
+  , less = require('gulp-less')
+  , jade = require('gulp-jade')
+  , notify = require('gulp-notify')
+  , prefix = require('gulp-autoprefixer');
 
 var handleErrors = function (error) {
  	return 'Error on line' + error.line + ' :' + error.message;
@@ -16,7 +15,6 @@ gulp.task('scripts', function() {
   browserify('./src/newtab/app.js')
   .bundle({debug: true})
   .on('error', notify.onError(handleErrors))
-  .pipe(mold.transformSourcesRelativeTo('./extension/override_newtab/'))
   .pipe(source('bundle.js'))
   .pipe(gulp.dest('./extension/override_newtab/'));
 

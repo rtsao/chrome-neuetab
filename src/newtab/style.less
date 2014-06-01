@@ -18,6 +18,7 @@ body {
 	height: 100vh;
 	display: flex;
 	flex-flow: column;
+	overflow:hidden;
 }
 
 h2 {
@@ -35,10 +36,24 @@ h2 {
 }
 
 .ng-hide-remove {
-  display:block!important;
+  //display:block!important;
   animation:.5s fadeInUp;
 }
 
 .ng-enter {
   animation:.5s fadeInUp;
+}
+
+.editForm {
+	background: #292929;
+	transition: height 0.2s ease;
+	height:0px;
+	overflow:hidden;
+
+	&.show {
+		transition: height 0.2s ease;
+		height: 116px;
+	}
+
+
 }

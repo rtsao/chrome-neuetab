@@ -6,7 +6,7 @@ module.exports = function ($http) {
   function stockQuery(query) {
 
     var options = {
-      transformResponse: function (data, headers) {
+      transformResponse: function (data, headersGetter) {
         return JSON.parse(data.substring(3));
       }
     }
@@ -17,11 +17,9 @@ module.exports = function ($http) {
   return {
 
     getStocks: function() {
-      console.log('getstocks!');
       return stocks = stockQuery(tickerList.join(','));
     },
     stockData: function() {
-      console.log('stockdata!');
       return stocks || this.getStocks();
     },
     listStocks: function() {
@@ -40,7 +38,6 @@ module.exports = function ($http) {
     },
     addStockList: function(stock) {
       tickerList.push(stock);
-      console.log('pushed!');
     }
 
   }

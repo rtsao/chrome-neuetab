@@ -1,19 +1,163 @@
+@triangle-size: 6px;  
+
 .sidebar {
+
   position:fixed;
   top:0;
   right:0;
   height: 100vh;
-  padding-top: 40px;
+  padding-top: 0px;
   background-color: #333333;
   width: 300px;
   transition: transform 0.5s ease;
   transform: translateX(300px);
+  display:flex;
+  flex-direction:column;
+
+  .sidebarTab {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .content {
+    flex-grow: 1;
+    overflow-y: overlay;
+  }
+
+  ::-webkit-scrollbar {
+      height: 12px;
+      width: 4px;
+      background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: white;
+      -webkit-border-radius: 1ex;
+  }
+
+  ::-webkit-scrollbar-corner {
+      background: #333;
+  }
+
+  form.addstock {
+    flex-shrink: 0;
+    padding:20px 30px 20px 30px;
+    background-color: #292929;
+  }
+
+  ul {
+    margin-top:0px;
+    display:flex;
+    flex-flow:row;
+    flex-shrink: 0;
+    justify-content: space-around;
+    padding: 0;
+    background-color: #4A90E2;
+  }
+
+  li {
+    display:flex;
+    flex-direction: column;
+    flex-grow:1;
+
+    a {
+      display:flex;
+      flex-direction: column;
+      font-family: HelveticaNeue-Thin;
+      font-size: 10px;
+      line-height:28px;
+      letter-spacing: 0.6px;
+      padding-top: @triangle-size;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    &:hover {
+      background-color: #498DDD;
+    }
+
+    &.active {
+      background-color: #4488D8;
+
+      a {
+        color: #fff;
+
+        &::after {
+          display:flex;
+          content:'';
+          width: 0; 
+          height: 0; 
+          margin:0 auto;
+          border-left: @triangle-size solid transparent;
+          border-right: @triangle-size solid transparent;
+          border-bottom: @triangle-size solid #333333;
+        }
+      }
+    }
+  }
+
+
+  .weatherForm {
+    padding:30px;
+  }
+
+
+  h3 {
+    font-family: HelveticaNeue;
+    font-size: 12px;
+    color: #9B9B9B;
+    text-transform: uppercase;
+    font-weight:normal;
+    margin:0px 0px 2px 0px;
+  }
+
+
+
+  form {
+    
+    fieldset {
+      padding:20px 30px 20px 30px;
+      margin:0;
+      padding:none;
+      border:none;
+    }
+
+
+
+    .location {
+      font-family: HelveticaNeue-Thin;
+      font-size: 18px;
+      color: #D4D4D4;
+      //text-transform: capitalize;
+    }
+
+    .geo {
+      font-family: HelveticaNeue;
+      font-size: 12px;
+      color: #636363;
+    }
+
+  }
+
+
+
 
   .button {
     position:absolute;
-    left: -20px;
-    top: 0;
+    left: -28px;
+    top: 4px;
+    font-family: HelveticaNeue-Light;
+    font-size:30px;
+    line-height:30px;
     cursor:pointer;
+    color:#efefef;
+  }
+
+  .button:hover {
+    color:#ccc;
   }
 
   &[open] {
@@ -29,15 +173,18 @@
     margin-bottom:10px;
   }
 
+  .title {
+    flex-shrink:0;
+    display:flex;
+    color: #F6F6F6;
+  }
+
   .title2 {
     font-family: HelveticaNeue-Light;
     font-size: 14px;
-    margin-top:20px;
     color: #999999;
     margin-left: 0px;
-    border-top: 2px solid #4a4a4a;
-    padding-top: 6px;
-    margin-right: 30px;
+    text-transform: uppercase;
   }
 
   input[type="text"] {
@@ -47,6 +194,7 @@
     color: #9B9B9B;
     border: none;
     font-family: HelveticaNeue-Light;
+    line-height:20px;
 
   }
 
@@ -55,9 +203,18 @@
     background-color: #4A4A4A;
     border: none;
     font-family: HelveticaNeue-Light;
-    font-size: 13px;
-    padding: 8px 8px 4px 8px;
+    font-size: 14px;
+    padding: 8px 16px 8px 16px;
+    line-height:20px;
     color: #D4D4D4;
+  }
+
+
+  .status {
+    font-family: HelveticaNeue-Light;
+    font-size: 14px;
+    color: #D4D4D4;
+    margin-top:0px;
   }
 
   .spinner {
@@ -82,10 +239,6 @@
 
   .spinner.ng-hide-remove {
     opacity:1 !important;
-  }
-
-  .addstock {
-    margin-left: 30px;
   }
 
   .ticker {
@@ -135,6 +288,7 @@
       }
 
     }
+
 
     &:hover {
       background-color: darken(#333333, 2%);

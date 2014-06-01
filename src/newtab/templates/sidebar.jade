@@ -1,12 +1,45 @@
 div.button(ng-click="toggleOpen()") +
-span.title Stocks
-div.ticker(ng-repeat="stock in app.stocks track by $index")
-  div.info
-    div.symbol {{stock.e}} : {{stock.t}} 
-    div.name {{stock.name}}
-  div.close(ng-click="removeStock($index)")
-    span &times;
 
-form.addstock(name="myForm", novalidate)
-  span.title2 ADD A STOCK 
-  div.stockForm
+ul
+  li(ng-repeat="pane in panes",ng-class="{active:pane.selected}")
+    a(href="",ng-click="select(pane)") {{pane.title}}
+
+div.sidebarTab(title="Stocks")
+  span.title Stocks
+  div.content
+    div.ticker(ng-repeat="stock in app.stocks track by $index")
+      div.info
+        div.symbol {{stock.e}} : {{stock.t}} 
+        div.name {{stock.name}}
+      div.close(ng-click="removeStock($index)")
+        span &times;
+  form.addstock(name="myForm", novalidate)
+    span.title2 Add a stock
+    div.stockForm
+
+div.sidebarTab(title="Weather")
+  span.title Weather
+  div.content
+    form.weather
+      fieldset
+        h3 Current Location
+        div.location {{app.location}}
+        div.geo Lat:{{app.coord.lat}} Lon:{{app.coord.lon}}
+      
+      
+        a(href="",ng-click="showForm=!showForm") EDIT
+      div.editForm(ng-class="{show:showForm}")
+        fieldset
+          p.status Please enter a city name
+          input(type="text",ng-model="app.new_location")
+          button(ng-click="app.location=app.new_location") SAVE
+      fieldset
+        h3 Units
+        input(type="radio",name="units",id="imperial",ng-model="app.units",value="imperial")
+        label(for="imperial") Imperial
+        input(type="radio",name="units",id="metric",ng-model="app.units",value="metric")
+        label(for="metric") Metric
+
+
+div.sidebarTab(title="Clock")
+  span.title Clock

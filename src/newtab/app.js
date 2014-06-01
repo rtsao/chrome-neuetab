@@ -2,7 +2,7 @@ var angular = require('angular');
 var $ngAnimate = require('angular-animate');
 
 var app = angular.module('app', ['ngAnimate'])
-  .controller('AppCtrl', ['stockService', require('./appController.js')])
+  .controller('AppCtrl', ['stockService','weatherService', require('./appController.js')])
   .directive('clock', require('./clock.js'))
   .service('weatherService', require('./weatherService.js'))
   .directive('forecast', ['weatherService','$animate', require('./forecast.js')])
@@ -10,4 +10,6 @@ var app = angular.module('app', ['ngAnimate'])
   .directive('stocks', ['stockService','$animate', require('./stocks.js')])
   //.directive('stock', require('./stock.js'))
   .directive('sidebar', ['$animate','stockService', require('./sidebar.js')])
+  .directive('sidebarTab', ['$animate','stockService', require('./sidebarTab.js')])
   .directive('stockForm', ['$animate','stockService', require('./stockForm.js')])
+  .directive('weatherForm', ['$animate','weatherService', require('./weatherForm.js')])
