@@ -1,6 +1,6 @@
 @base: #4a4a4a;
 
-
+@import "ui-variables";
 @import "animations";
 @import "clock";
 @import "weather";
@@ -9,7 +9,7 @@
 
 body {
 	color: @base;
-	font-family: HelveticaNeue;
+	font-family: @font-normal;
 	text-rendering: optimizeLegibility;
 	padding: 30px;
 	margin:0;
@@ -22,7 +22,7 @@ body {
 }
 
 h2 {
-	font-family: HelveticaNeue-Thin;
+	font-family: @font-thin;
 	font-size: 24px;
 	color: #D4D4D4;
 	line-height: 26px;
