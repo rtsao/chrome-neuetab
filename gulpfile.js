@@ -8,12 +8,12 @@ var gulp = require('gulp')
   , prefix = require('gulp-autoprefixer')
 
 var handleErrors = function (error) {
- 	return 'Error on line' + error.line + ' :' + error.message;
+  return 'Error on line' + error.line + ' :' + error.message;
 }
 
 gulp.task('scripts', function() {
   browserify('./src/newtab/app.js')
-  .bundle({debug: true})
+  .bundle({ debug: true })
   .on('error', notify.onError(handleErrors))
   .pipe(source('bundle.js'))
   .pipe(gulp.dest('./extension/override_newtab/'));
@@ -26,18 +26,18 @@ gulp.task('scripts', function() {
 
 gulp.task('less', function() {
   gulp.src('./src/newtab/less/style.less')
-  	.pipe(less({ compress: true }))
-  	.on('error', notify.onError(handleErrors))
+    .pipe(less({ compress: true }))
+    .on('error', notify.onError(handleErrors))
     .pipe(prefix('last 2 Chrome versions'))
-  	.pipe(gulp.dest('./extension/override_newtab/'));
+    .pipe(gulp.dest('./extension/override_newtab/'));
 });
 
 gulp.task('jade', function() {
 
-	gulp.src('./src/newtab/index.jade')
-		.pipe(jade({ pretty: true }))
-		.on('error', notify.onError(handleErrors))
-		.pipe(gulp.dest('./extension/override_newtab/'));
+  gulp.src('./src/newtab/index.jade')
+    .pipe(jade({ pretty: true }))
+    .on('error', notify.onError(handleErrors))
+    .pipe(gulp.dest('./extension/override_newtab/'));
 
   gulp.src('./src/newtab/templates/*.jade')
     .pipe(jade({ pretty: true }))
