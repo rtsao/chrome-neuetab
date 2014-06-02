@@ -1,1 +1,45 @@
-<div ng-click="toggleOpen()" class="button">+</div><ul><li ng-repeat="pane in panes" ng-class="{active:pane.selected}"><a href="" ng-click="select(pane)">{{pane.title}}</a></li></ul><div title="Stocks" class="sidebarTab"><span class="title">Stocks</span><div class="content"><div ng-repeat="stock in app.stocks track by $index" class="ticker"><div class="info"><div class="symbol">{{stock.e}} : {{stock.t}} </div><div class="name">{{stock.name}}</div></div><div ng-click="removeStock($index)" class="close"><span>&times;</span></div></div></div><form name="myForm" novalidate="novalidate" class="addstock"><span class="title2">Add a stock</span><div class="stockForm"></div></form></div><div title="Weather" class="sidebarTab"><span class="title">Weather</span><div class="content"><form class="weather"><fieldset><h3>Current Location</h3><div class="location">{{app.location}}</div><div class="geo">Lat:{{app.coord.lat}} Lon:{{app.coord.lon}}</div><a href="" ng-click="showForm=!showForm">EDIT</a></fieldset><div ng-class="{show:showForm}" class="editForm"><fieldset><p class="status">Please enter a city name</p><input type="text" ng-model="app.new_location"/><button ng-click="app.location=app.new_location">SAVE</button></fieldset></div><fieldset><h3>Units</h3><input type="radio" name="units" id="imperial" ng-model="app.units" value="imperial"/><label for="imperial">Imperial</label><input type="radio" name="units" id="metric" ng-model="app.units" value="metric"/><label for="metric">Metric</label></fieldset></form></div></div><div title="Clock" class="sidebarTab"><span class="title">Clock</span></div>
+
+<div ng-click="toggleOpen()" class="button">+</div>
+<ul>
+  <li ng-repeat="pane in panes" ng-class="{active:pane.selected}"><a href="" ng-click="select(pane)">{{pane.title}}</a></li>
+</ul>
+<div title="Stocks" class="sidebarTab"><span class="title">Stocks</span>
+  <div class="content">
+    <div ng-repeat="stock in app.stocks track by $index" class="ticker">
+      <div class="info">
+        <div class="symbol">{{stock.e}} : {{stock.t}} </div>
+        <div class="name">{{stock.name}}</div>
+      </div>
+      <div ng-click="removeStock($index)" class="close"><span>&times;</span></div>
+    </div>
+  </div>
+  <form name="myForm" novalidate="novalidate" class="addstock"><span class="title2">Add a stock</span>
+    <div class="stockForm"></div>
+  </form>
+</div>
+<div title="Weather" class="sidebarTab"><span class="title">Weather</span>
+  <div class="content">
+    <form class="weather">
+      <fieldset>
+        <h3>Current Location</h3>
+        <div class="location">{{app.location}}</div>
+        <div class="geo">Lat:{{app.coord.lat}} Lon:{{app.coord.lon}}</div><a href="" ng-click="showForm=!showForm">EDIT</a>
+      </fieldset>
+      <div ng-class="{show:showForm}" class="editForm">
+        <fieldset>
+          <p class="status">Please enter a city name</p>
+          <input type="text" ng-model="app.new_location"/>
+          <button ng-click="app.location=app.new_location">SAVE</button>
+        </fieldset>
+      </div>
+      <fieldset>
+        <h3>Units</h3>
+        <input type="radio" name="units" id="imperial" ng-model="app.units" value="imperial"/>
+        <label for="imperial">Imperial</label>
+        <input type="radio" name="units" id="metric" ng-model="app.units" value="metric"/>
+        <label for="metric">Metric</label>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<div title="Clock" class="sidebarTab"><span class="title">Clock</span></div>

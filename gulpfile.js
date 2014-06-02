@@ -5,7 +5,7 @@ var gulp = require('gulp')
   , less = require('gulp-less')
   , jade = require('gulp-jade')
   , notify = require('gulp-notify')
-  , prefix = require('gulp-autoprefixer');
+  , prefix = require('gulp-autoprefixer')
 
 var handleErrors = function (error) {
  	return 'Error on line' + error.line + ' :' + error.message;
@@ -25,7 +25,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('less', function() {
-  gulp.src('./src/newtab/style.less')
+  gulp.src('./src/newtab/less/style.less')
   	.pipe(less({ compress: true }))
   	.on('error', notify.onError(handleErrors))
     .pipe(prefix('last 2 Chrome versions'))
@@ -34,14 +34,13 @@ gulp.task('less', function() {
 
 gulp.task('jade', function() {
 
-	gulp.src('./src/newtab/layout.jade')
-		.pipe(jade())
+	gulp.src('./src/newtab/index.jade')
+		.pipe(jade({ pretty: true }))
 		.on('error', notify.onError(handleErrors))
-		.pipe(rename('index.html'))
 		.pipe(gulp.dest('./extension/override_newtab/'));
 
   gulp.src('./src/newtab/templates/*.jade')
-    .pipe(jade())
+    .pipe(jade({ pretty: true }))
     .on('error', notify.onError(handleErrors))
     .pipe(gulp.dest('./extension/override_newtab/templates/'));
 

@@ -1,15 +1,24 @@
-var angular = require('angular');
-var $ngAnimate = require('angular-animate');
+var angular = require('angular')
+  , ngAnimate = require('angular-animate')
+  , clock = require('./directives/clock.js')
+  , weather = require('./directives/weather.js')
+  , sidebar = require('./directives/sidebar.js')
+  , stocks = require('./directives/stocks.js')
+  , AppCtrl = require('./controllers/AppController.js')
+  , weatherService = require('./services/weatherService.js')
+  , stockService = require('./services/stockService.js')
+  , stockForm = require('./directives/stockForm.js')
 
-var app = angular.module('app', ['ngAnimate'])
-  .controller('AppCtrl', ['stockService','weatherService', require('./appController.js')])
-  .directive('clock', require('./clock.js'))
-  .service('weatherService', require('./weatherService.js'))
-  .directive('forecast', ['weatherService','$animate', require('./forecast.js')])
-  .service('stockService', require('./stockService.js'))
-  .directive('stocks', ['stockService','$animate', require('./stocks.js')])
-  //.directive('stock', require('./stock.js'))
-  .directive('sidebar', ['$animate','stockService', require('./sidebar.js')])
-  .directive('sidebarTab', ['$animate','stockService', require('./sidebarTab.js')])
-  .directive('stockForm', ['$animate','stockService', require('./stockForm.js')])
-  .directive('weatherForm', ['$animate','weatherService', require('./weatherForm.js')])
+var app = angular.module('app',
+  [
+    'ngAnimate',
+    clock.name,
+    weather.name,
+    sidebar.name,
+    stocks.name,
+    AppCtrl.name,
+    weatherService.name,
+    stockService.name,
+    stockForm.name
+  ]
+)

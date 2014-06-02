@@ -5,9 +5,7 @@ html(lang="en", ng-app="app")
   body(ng-controller="AppCtrl as app")
     div.top
       div.clock
-      div.forecast
-    div.stocks
-      h2 Stocks
-      //div.stock(ng-repeat="stock in app.stocks track by $index")
+      weather.forecast
+    stocks.stocks
     div.sidebar
     script(src="bundle.js")
