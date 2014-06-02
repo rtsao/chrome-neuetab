@@ -1,13 +1,21 @@
 @triangle-size: 6px;  
 
+@tab-color: @blue;
+@tab-hover: lighten(@tab-color, 3%);
+@tab-active: darken(@tab-color, 3%);
+
+@sidebar-color: @gray;
+@sidebar-darker: darken(@sidebar-color, 5%);
+
+
 .sidebar {
 
-  position:fixed;
-  top:0;
-  right:0;
+  position: fixed;
+  top: 0;
+  right: 0;
   height: 100vh;
   padding-top: 0px;
-  background-color: #333333;
+  background-color: @sidebar-color;
   width: 300px;
   transition: transform 0.5s ease;
   transform: translateX(300px);
@@ -43,7 +51,7 @@
   form.addstock {
     flex-shrink: 0;
     padding:20px 30px 20px 30px;
-    background-color: #292929;
+    background-color: @sidebar-darker;
   }
 
   ul {
@@ -76,11 +84,14 @@
     }
 
     &:hover {
-      background-color: #498DDD;
+      //background-color: #498DDD;
+      background-color: @tab-hover;
+
     }
 
     &.active {
-      background-color: #4488D8;
+      //background-color: #4488D8;
+      background-color: @tab-active;
 
       a {
         color: #fff;
@@ -291,7 +302,7 @@
 
 
     &:hover {
-      background-color: darken(#333333, 2%);
+      background-color: darken(@sidebar-color, 2%);
     }
 
   }

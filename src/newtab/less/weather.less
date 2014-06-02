@@ -1,3 +1,5 @@
+@symbol-degree: '\00B0';
+
 .forecast {
   flex: 1 0 auto;
 
@@ -10,7 +12,7 @@
 
   .temp_high, .temp_low, .temp_current {
     &::after {
-      content: '\00B0';
+      content: @symbol-degree;
     }
   }
 
