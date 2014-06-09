@@ -17,11 +17,6 @@ gulp.task('scripts', function() {
   .on('error', notify.onError(handleErrors))
   .pipe(source('bundle.js'))
   .pipe(gulp.dest('./extension/override_newtab/'));
-
-  browserify('./src/background/background.js')
-  .bundle()
-  .pipe(source('background.js'))
-  .pipe(gulp.dest('./extension/'));
 });
 
 gulp.task('less', function() {
