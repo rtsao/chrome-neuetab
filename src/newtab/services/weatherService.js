@@ -35,6 +35,7 @@ module.exports = angular.module('app.weatherService', [])
         }
 
         console.log('Loading new weather');
+        
         $http(options).success(function(data){
           //HTTP status codes not used in openweathermap API, instead in returned JSON
           if (data.cod !== 200) {

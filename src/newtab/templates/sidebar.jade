@@ -23,11 +23,12 @@ div.sidebarTab(title="Weather")
     form.weather
       fieldset
         h3 Current Location
-        div.location {{app.location}}
-        div.geo Lat:{{app.coord.lat}} Lon:{{app.coord.lon}}
-      
-      
-        a(href="",ng-click="showForm=!showForm") EDIT
+        div.location
+          div
+            div.location {{app.location}}
+            div.geo Lat:{{app.coord.lat}} Lon:{{app.coord.lon}}
+          div
+            a.modify(href="",ng-click="showForm=!showForm") {{showForm ? 'cancel' : 'edit' }}
       div.editForm(ng-class="{show:showForm}")
         fieldset
           p.status Please enter a city name

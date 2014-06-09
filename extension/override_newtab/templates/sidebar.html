@@ -22,8 +22,13 @@
     <form class="weather">
       <fieldset>
         <h3>Current Location</h3>
-        <div class="location">{{app.location}}</div>
-        <div class="geo">Lat:{{app.coord.lat}} Lon:{{app.coord.lon}}</div><a href="" ng-click="showForm=!showForm">EDIT</a>
+        <div class="location">
+          <div>
+            <div class="location">{{app.location}}</div>
+            <div class="geo">Lat:{{app.coord.lat}} Lon:{{app.coord.lon}}</div>
+          </div>
+          <div><a href="" ng-click="showForm=!showForm" class="modify">{{showForm ? 'cancel' : 'edit' }}</a></div>
+        </div>
       </fieldset>
       <div ng-class="{show:showForm}" class="editForm">
         <fieldset>

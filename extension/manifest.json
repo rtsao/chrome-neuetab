@@ -4,7 +4,6 @@
   "manifest_version": 2,
   "description": "A new tab page replacement for Google Chrome",
   "background": {
-    "scripts": ["background.js"],
     "persistent": true
   },
   "permissions": [
