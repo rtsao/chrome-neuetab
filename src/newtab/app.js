@@ -8,6 +8,7 @@ var angular = require('angular')
   , weatherService = require('./services/weatherService.js')
   , stockService = require('./services/stockService.js')
   , stockForm = require('./directives/stockForm.js')
+  , storageService = require('./services/storageService.js')
 
 var app = angular.module('app',
   [
@@ -19,6 +20,7 @@ var app = angular.module('app',
     AppCtrl.name,
     weatherService.name,
     stockService.name,
-    stockForm.name
+    stockForm.name,
+    storageService.name
   ]
 )

@@ -1,10 +1,7 @@
 var angular = require('angular');
 
 module.exports = angular.module('app.stockService', [])
-  .service('stockService', ['$http', function ($http) {
-
-    var tickerList = ['goog','intc'];
-    var stocks;
+  .service('stockService', ['$http', 'storageService', function ($http, storageService) {
 
     function stockQuery(query) {
 
@@ -19,8 +16,10 @@ module.exports = angular.module('app.stockService', [])
 
     return {
 
-      getStocks: function() {
-        return stocks = stockQuery(tickerList.join(','));
+      getStocks: function(tickerList) {
+        if (tickerList.length) {
+          return stockQuery(tickerList.join(','));
+        }
       },
       stockData: function() {
         return stocks || this.getStocks();

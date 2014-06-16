@@ -44,7 +44,7 @@ gulp.task('jade', function() {
 gulp.task('default', ['scripts', 'less', 'jade', 'watch']);
 
 gulp.task('watch', function() {
-  gulp.watch('./src/newtab/*.js', ['scripts']);
+  gulp.watch('./src/newtab/**/*.js', ['scripts']);
   gulp.watch('./src/newtab/**/*.jade', ['jade']);
   gulp.watch('./src/newtab/**/*.less', ['less']);
 });
