@@ -25,7 +25,6 @@ module.exports = angular.module('app.weatherService', [])
           var cachedWeather = JSON.parse(localStorage.weather);
 
           if (cachedWeather.query === query && cachedWeather.units === units && (Date.now() - cachedWeather.time) < 1000*50) {
-            console.log('Using cached weather');
             deferred.resolve(cachedWeather);
             return deferred.promise;
           }

@@ -21,25 +21,8 @@ module.exports = angular.module('app.stockService', [])
           return stockQuery(tickerList.join(','));
         }
       },
-      stockData: function() {
-        return stocks || this.getStocks();
-      },
-      listStocks: function() {
-        return tickerList;
-      },
-      addStock: function(ticker) {
-        tickerList.push(ticker);
-        //localstorage save
-      },
       checkStock: function(ticker) {
         return stockQuery(ticker);
-      },
-      removeStockIndex: function(index) {
-        tickerList.splice(index,1);
-        console.log(tickerList);
-      },
-      addStockList: function(stock) {
-        tickerList.push(stock);
       }
 
     }

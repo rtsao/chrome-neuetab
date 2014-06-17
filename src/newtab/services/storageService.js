@@ -17,11 +17,9 @@ module.exports = angular.module('app.storageService', [])
         console.log('OBJ',obj);
 
         if ( Date.now() > obj.expires ) { //false if expires undefined
-          console.log('retrived expired item for key',key);
           return;
         }
         else {
-          console.log('no problem here for key',key,obj,obj.data);
           return JSON.parse(obj.data);
         }
       },
