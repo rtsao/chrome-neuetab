@@ -1,4 +1,4 @@
-h2(ng-show="app.stocks.length") Stocks
+h2.fadeIn(ng-show="app.stocks.length") Stocks
 div.stockList
   div.stock(ng-repeat="stock in app.stocks track by $index")
     div.name {{stock.name}}

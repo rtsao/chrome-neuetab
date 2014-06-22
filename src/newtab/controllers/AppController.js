@@ -10,6 +10,7 @@ module.exports = angular.module('app.AppCtrl', [])
     this.location = storageService.getItem('location') || 'santa clara,ca';
     this.units = 'imperial';
     this.coord = {lon:-121.96, lat:37.36}
+    this.stocks = [];
 
     this.tickerList = storageService.getItem('tickerList') || [];
 
