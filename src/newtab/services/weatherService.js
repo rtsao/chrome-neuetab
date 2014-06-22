@@ -24,7 +24,7 @@ module.exports = angular.module('app.weatherService', [])
         try {
           var cachedWeather = JSON.parse(localStorage.weather);
 
-          if (cachedWeather.query === query && cachedWeather.units === units && (Date.now() - cachedWeather.time) < 1000*50) {
+          if (cachedWeather.query === query && cachedWeather.units === units && (Date.now() - cachedWeather.time) < 1000000) {
             deferred.resolve(cachedWeather);
             return deferred.promise;
           }

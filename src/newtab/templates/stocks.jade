@@ -5,3 +5,4 @@ div.stockList
       span.symbol {{stock.e}} : {{stock.t}}
     div.price {{stock.l}}
       span.change(class="{{stock.ccol}}") {{stock.c}} ({{stock.cp}}%)
+    div.time {{moment(stock.lt_dts).fromNow();}}

@@ -1,5 +1,6 @@
 var angular = require('angular')
   , ngAnimate = require('angular-animate')
+  , moment = require('moment')
   , clock = require('./directives/clock.js')
   , weather = require('./directives/weather.js')
   , sidebar = require('./directives/sidebar.js')
@@ -24,3 +25,6 @@ var app = angular.module('app',
     storageService.name
   ]
 )
+.run(function ($rootScope) {
+    $rootScope.moment = moment;
+ });
