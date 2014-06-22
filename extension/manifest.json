@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "manifest_version": 2,
   "description": "A new tab page replacement for Google Chrome",
-  "background": {
-    "persistent": true
-  },
   "permissions": [
     "storage"
   ],
@@ -14,5 +11,10 @@
   },
   "web_accessible_resources": [
     "override_newtab/*"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "permissions": [
+    "http://www.google.com/",
+    "http://api.openweathermap.org/"
   ]
 }
